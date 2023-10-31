@@ -1,0 +1,6 @@
+version: '3'
+
+volumes:
+  - type: bind
+    source: ~/Documents
+    target: /Documents
