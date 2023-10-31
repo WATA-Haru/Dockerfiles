@@ -11,3 +11,15 @@ RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
     mv nvim-linux64/share/nvim/ usr/share/nvim && \
     rm -rf nvim-linux64 && \
     rm nvim-linux64.tar.gz
+
+RUN apt install -y locales && \
+    locale-gen ja_JP.UTF-8
+
+# dotfiles for 42tokyo
+RUN git clone -b dotfiles https://github.com/WATA-Haru/42-dotfiles.git
+
+RUN mv ~/.bashrc ~/.prev_bashrc && \
+	mv ~/.config/nvim ~/tmp_nvim && \
+    ln -s /dotfiles/.bashrc ~/.bashrc && \
+    ln -s /dotfiles/.bash_aliases ~/.bash_aliases && \
+    ln -s /dotfiles/.config/nvim/ ~/.dotfiles/nvim && \
