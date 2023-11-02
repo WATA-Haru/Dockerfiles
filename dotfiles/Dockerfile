@@ -31,6 +31,9 @@ RUN rm -f ~/.vimrc && \
     ln -s /dotfiles/vim/vimrc ~/.vimrc && \
     ln -s /dotfiles/vim/vim ~/.vim
 
+RUN rm -f ~/.tmux.conf && \
+    ln -s /dotfiles/tmux/tmux.conf ~/.tmux.conf && \
+
 RUN apt-get install -y ca-certificates gnupg && \
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
     NODE_MAJOR=20 && \
