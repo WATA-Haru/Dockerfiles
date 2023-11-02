@@ -1,0 +1,12 @@
+version: '3'
+services:
+  42-dotfiles:
+    image: WATA-Haru/42-dotfiles:base
+    platform: linux/amd64
+    volumes:
+      - type: bind
+        source: ./
+        target: /work_dir
+    profiles:
+      -extra
+

@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt update && \
     apt-get update && \
-    apt install -y curl git ripgrep tar unzip vim wget python3 python3-pip python3-venv
+    apt install -y curl git ripgrep tar unzip vim wget python3 python3-pip python3-venv tmux
 
 RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz && \
     tar -zxvf nvim-linux64.tar.gz && \
@@ -17,20 +17,19 @@ RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 RUN apt install -y locales && \
     locale-gen ja_JP.UTF-8
 
-# 42-dotfiles for 42 school
-RUN git clone -b main https://github.com/WATA-Haru/42-dotfiles.git
+RUN git clone https://github.com/WATA-Haru/dotfiles.git
 
 RUN rm -f ~/.bashrc && \
     rm -rf ~/.config/nvim && \
-    ln -s /42-dotfiles/.bashrc ~/.bashrc && \
-    ln -s /42-dotfiles/.bash_aliases ~/.bash_aliases && \
+    ln -s /dotfiles/.bashrc ~/.bashrc && \
+    ln -s /dotfiles/.bash_aliases ~/.bash_aliases && \
     mkdir ~/.config/ && \
-    ln -s /42-dotfiles/nvim ~/.config/nvim
+    ln -s /dotfiles/nvim ~/.config/nvim
 
 RUN rm -f ~/.vimrc && \
     rm -rf ~/.vim && \
-    ln -s /42-dotfiles/vim/vimrc ~/.vimrc && \
-    ln -s /42-dotfiles/vim/vim ~/.vim
+    ln -s /dotfiles/vim/vimrc ~/.vimrc && \
+    ln -s /dotfiles/vim/vim ~/.vim
 
 RUN apt-get install -y ca-certificates gnupg && \
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
