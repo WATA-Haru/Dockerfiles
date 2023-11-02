@@ -1,6 +1,0 @@
-version: '3'
-
-volumes:
-  - type: bind
-    source: ./
-    target: /working_dir
