@@ -1,12 +1,14 @@
 version: '3'
 services:
-  42-dotfiles:
-    image: WATA-Haru/42-dotfiles:base
-    platform: linux/amd64
+  dotfiles:
+    image: hwata001/dotfiles:latest
+      #platform: linux/amd64
+      #profiles:
+      #-extra
     volumes:
       - type: bind
-        source: ./
-        target: /work_dir
-    profiles:
-      -extra
-
+        source: "../"
+        target: "/home"
+      - type: bind
+        source: "~/.ssh"
+        target: "/root/.ssh"

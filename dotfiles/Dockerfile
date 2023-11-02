@@ -19,6 +19,8 @@ RUN apt install -y locales && \
 
 RUN git clone https://github.com/WATA-Haru/dotfiles.git
 
+RUN mkdir ~/.ssh
+
 RUN rm -f ~/.bashrc && \
     rm -rf ~/.config/nvim && \
     ln -s /dotfiles/.bashrc ~/.bashrc && \
