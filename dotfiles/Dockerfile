@@ -17,7 +17,7 @@ RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 RUN apt install -y locales && \
     locale-gen ja_JP.UTF-8
 
-RUN git clone https://github.com/WATA-Haru/dotfiles.git
+RUN git clone -b main https://github.com/WATA-Haru/dotfiles.git
 
 RUN mkdir ~/.ssh
 
