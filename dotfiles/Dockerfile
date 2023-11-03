@@ -60,4 +60,5 @@ RUN apt-get install -y ca-certificates gnupg && \
 RUN python3 -m pip install --upgrade pip setuptools
 RUN python3 -m pip install norminette
 
-RUN source ~/.bashrc
+RUN . ~/.bashrc
+RUN . /dotfiles/set_git_uname_email.sh
