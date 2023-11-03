@@ -7,7 +7,7 @@ services:
       #-extra
     volumes:
       - type: bind
-        source: "../"
+        source: "../../"
         target: "/home"
       - type: bind
         source: "~/.ssh"
