@@ -13,6 +13,6 @@ services:
         source: "<your-ssh-key>"
         target: "/root/.ssh"
     environment:
-      - GIT_EMAIL: "<you-git-email>"
-      - GIT_NAME: "<you-git-name>"
+      - GIT_EMAIL=<you-git-email>
+      - GIT_NAME=<you-git-name>
 
