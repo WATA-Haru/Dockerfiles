@@ -6,6 +6,7 @@ RUN apt update && \
     apt-get update && \
     apt install -y curl git ripgrep tar unzip vim wget python3 python3-pip python3-venv tmux
 
+# nvim install
 RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz && \
     tar -zxvf nvim-linux64.tar.gz && \
     mv nvim-linux64/bin/nvim usr/bin/nvim && \
@@ -17,25 +18,36 @@ RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.
 RUN apt install -y locales && \
     locale-gen ja_JP.UTF-8
 
+# add my dotfiles
 RUN git clone -b main https://github.com/WATA-Haru/dotfiles.git
 
+# you can mount your github ssh-key by using docker compose volume
 RUN mkdir ~/.ssh
 
+# bash symbolic link
 RUN rm -f ~/.bashrc && \
-    rm -rf ~/.config/nvim && \
-    ln -s /dotfiles/.bashrc ~/.bashrc && \
     ln -s /dotfiles/.bash_aliases ~/.bash_aliases && \
+    ln -s /dotfiles/.bashrc ~/.bashrc
+
+# nvim symbolic link
+RUN rm -rf ~/.config/nvim && \
     mkdir ~/.config/ && \
     ln -s /dotfiles/nvim ~/.config/nvim
 
+# vim symbolic link
 RUN rm -f ~/.vimrc && \
     rm -rf ~/.vim && \
     ln -s /dotfiles/vim/vimrc ~/.vimrc && \
     ln -s /dotfiles/vim/vim ~/.vim
 
+# tmux plugin manager install
+RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# tmux symbolic link
 RUN rm -f ~/.tmux.conf && \
     ln -s /dotfiles/tmux/tmux.conf ~/.tmux.conf
-
+	
+# install npm for lsp
 RUN apt-get install -y ca-certificates gnupg && \
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
     NODE_MAJOR=20 && \
