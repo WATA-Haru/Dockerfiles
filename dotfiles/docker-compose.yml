@@ -14,5 +14,4 @@ services:
         target: "/root/.ssh"
       - type: bind
         source: "./my-gitconfig" #be copied from ~/.gitconfig
-        target: "/root/.gitconfig""
-
+        target: "/root/.gitconfig"
