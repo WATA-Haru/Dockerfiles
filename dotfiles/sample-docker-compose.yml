@@ -12,7 +12,7 @@ services:
       - type: bind
         source: "<your-ssh-key>"
         target: "/root/.ssh"
-    envimronment:
+    environment:
       - GIT_EMAIL: "<you-git-email>"
       - GIT_NAME: "<you-git-name>"
 
