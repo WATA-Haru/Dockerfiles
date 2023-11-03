@@ -7,8 +7,12 @@ services:
       #-extra
     volumes:
       - type: bind
-        source: "../../"
+        source: "<you-working-dir>"
         target: "/home"
       - type: bind
-        source: "~/.ssh"
+        source: "<your-ssh-key>"
         target: "/root/.ssh"
+    envimronment:
+      - GIT_EMAIL: "<you-git-email>"
+      - GIT_NAME: "<you-git-name>"
+
