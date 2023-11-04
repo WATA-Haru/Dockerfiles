@@ -10,9 +10,5 @@ services:
         source: "<you-working-dir>"
         target: "/home"
       - type: bind
-        source: "<your-ssh-key>"
+        source: "<your-ssh-key>" #your github ssh key dir
         target: "/root/.ssh"
-    environment:
-      - GIT_EMAIL=<you-git-email>
-      - GIT_NAME=<you-git-name>
-
