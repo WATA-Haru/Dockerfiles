@@ -61,4 +61,3 @@ RUN python3 -m pip install --upgrade pip setuptools
 RUN python3 -m pip install norminette
 
 RUN . ~/.bashrc
-RUN . /dotfiles/set_git_uname_email.sh
