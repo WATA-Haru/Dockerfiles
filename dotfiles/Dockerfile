@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN apt update && \
     apt-get update && \
-    apt install -y curl git ripgrep tar unzip vim wget python3 python3-pip python3-venv tmux man
+    apt install -y curl git ripgrep tar unzip vim wget python3 python3-pip python3-venv tmux man gdb
 
 # nvim install
 RUN wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz && \
