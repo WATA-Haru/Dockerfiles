@@ -19,7 +19,7 @@ RUN apt install -y locales && \
     locale-gen ja_JP.UTF-8
 
 # add my dotfiles
-RUN git clone -b docker https://github.com/WATA-Haru/dotfiles.git
+RUN git clone -b nvim-docker https://github.com/WATA-Haru/dotfiles.git
 
 # you can mount your github ssh-key by using docker compose volume
 RUN mkdir ~/.ssh
